@@ -23,5 +23,5 @@ function draw()
 
 function drawFood()
 {
-    food = ( random( gridsize) )
+    //food = ( random( gridsize) )
 }
