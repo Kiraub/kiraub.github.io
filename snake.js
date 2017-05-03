@@ -6,22 +6,24 @@ const gridsize = 20;
 
 // global vars
 
-var tileList[];
-var food;
+var tileList;
+var foodx;
+var foody;
 
 
 function setup()
 {
-    createCanvas( 600, 600);
+    createCanvas( width, height);
     background( 60);
+    
 }
 
 function draw()
 {
-    //
+    
 }
 
 function drawFood()
 {
-    //food = ( random( gridsize) )
+    
 }
