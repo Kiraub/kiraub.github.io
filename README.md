@@ -1,5 +1,9 @@
 # kiraub.github.io
 
-A little site project of mine to get into the how-tos of web-based content creation.
+A little side project of mine to get into the how-tos of web-based content creation.
 
-Expect nothing major here from my part, beginner in html and javascript alike.
+Current steps:
+
+	1. Basic HTML knowledge
+	2. Usage of CSS
+	3. Look into some frameworks to set up a web page
