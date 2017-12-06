@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>ScatterVis.js Testing ground</title>
+
+    <!-- local resources -->
+    <link rel="stylesheet" href="./scattervis.css"></link>
+
+</head>
+<body onresize="resize()">
+
+<!-- sidenav -->
+    <script>
+    function openNav() {
+        document.getElementById("optionSidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("optionSidenav").style.width = "0";
+    }
+    </script>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open Menu</span>
+    <span class="title">ScatterVis.js</span>
+    <br>
+    <div id="optionSidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; Close Menu</a>
+        <div id="layers" class="itemlist">
+            <div class="listhead">Layers:</div>
+            <div class="item">
+                <input type="checkbox" id="checkPoints" onchange="drawScatterData()">
+                <label for="checkPoints">Data Points</label>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="checkVoronoi" onchange="drawScatterData()">
+                <label for="checkVoronoi">Voronoi</label>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="checkShepard" onchange="drawScatterData()">
+                <label for="checkShepard">Shepard</label>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="checkMap" onchange="drawScatterData()">
+                <label for="checkMap">Map</label>
+            </div>
+        </div>
+        <div id="vieworder" class="itemlist">
+            <div class="listhead">View order:</div>
+            <div class="item" draggable="true">
+                Voronoi
+            </div>
+            <div class="item" draggable="true">
+                Shepard
+            </div>
+            <div class="item" draggable="true">
+                Map
+            </div>
+        </div>
+    </div>
+<!-- canvas -->
+    <div id="canvasContainer" class="container">
+        <canvas id="scatterDataCanvas" class="canvas" onclick="onClick(event)">
+            Das Canvas kann in Ihrem Browser nicht angezeigt werden.
+        </canvas>
+        <script src="./scattervis.js"></script>
+    </div>
+</body>
+</html>
