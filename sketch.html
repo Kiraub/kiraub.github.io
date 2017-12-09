@@ -2,14 +2,54 @@
 <head>
     <meta charset="utf-8">
     <title>Test sketch made using p5.js</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+
     <script src="p5.js"></script>
     <script src="p5.dom.js"></script>
 
 </head>
 
 <body>
-<a href="index.html">
-    <h2>Back</h2>
-</a>
+<!--begin sidenav-->
+    <div class="pagehead">
+        <center>
+            <span style="cursor:pointer;position: absolute; left:10px;" onclick="openNav()">&#9776; Open Menu</span>
+            <span>Kiraub's Homepage</span>
+        </center>
+    </div><script>
+    function openNav() {
+        document.getElementById("homeSideNav").style.width = "400px";
+    }
+
+    function closeNav() {
+        document.getElementById("homeSideNav").style.width = "0";
+    }
+    </script>
+    <br>
+    <div id="homeSideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; Close Menu</a>
+        <div id="pagelinks" class="itemlist">
+            <div class="item">
+                <div class="head"><a href="index.html">Home</a></div>
+                <div class="head">Some p5.js tests:</div>
+                <div class="item">
+                    <a href="testing.html">Testing Stuff</a><br>basically just trying out stuff
+                </div>
+                <div class="item">
+                    <a href="sketch.html">Sketch</a><br>a little canvas to draw on
+                </div>
+                <div class="item">
+                    <a href="snake.html">Snake</a><br>WIP until ... later ..
+                </div>
+                <div class="head">University Project</div>
+                <div class="item">
+                    <a href="scvis.html">Visualization</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--end sidenav-->
 <script src="sketch.js"></script>
 </body>
