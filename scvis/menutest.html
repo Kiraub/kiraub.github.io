@@ -11,10 +11,11 @@
 </head>
 <body onresize="resize()">
 
-<!-- sidenav -->
+<!--begin sidenav-->
+    <span class="title">ScatterVis.js</span>
     <script>
     function openNav() {
-        document.getElementById("optionSidenav").style.width = "250px";
+        document.getElementById("optionSidenav").style.width = "400px";
     }
 
     function closeNav() {
@@ -22,12 +23,11 @@
     }
     </script>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open Menu</span>
-    <span class="title">ScatterVis.js</span>
     <br>
     <div id="optionSidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; Close Menu</a>
         <div id="layers" class="itemlist">
-            <div class="listhead">Layers:</div>
+            <div class="head">Layers:</div>
             <div class="item">
                 <input type="checkbox" id="checkPoints" onchange="drawScatterData()">
                 <label for="checkPoints">Data Points</label>
@@ -46,24 +46,51 @@
             </div>
         </div>
         <div id="vieworder" class="itemlist">
-            <div class="listhead">View order:</div>
-            <div class="item" draggable="true">
+            <div class="head">View order:</div>
+            <div id="1" class="item drag" draggable="true">
+                Points
+            </div>
+            <div id="2" class="item drag" draggable="true">
                 Voronoi
             </div>
-            <div class="item" draggable="true">
+            <div id="3" class="item drag" draggable="true">
                 Shepard
             </div>
-            <div class="item" draggable="true">
+            <div id="4" class="item drag" draggable="true">
                 Map
             </div>
         </div>
+        <div id="data" class="itemlist">
+            <div class="head">Selected Data Set:</div>
+            <div class="item">
+                <select id="data-selector" class="selector" onchange="onDataSetChange()"></select>
+            </div>
+            <div class="head">Selected Data Point:</div>
+            <div class="item">
+                <table id="data-table" class="w3-table-all table">
+                <colgroup>
+                    <col width="130px">
+                    <col>
+                </colgroup>
+                <tr>
+                    <th>Data Name</th>
+                    <th>Value</th>
+                </tr>
+            </table>
+            </div>
+        </div>
     </div>
-<!-- canvas -->
+<!--end sidenav-->
+<!--begin canvas-->
     <div id="canvasContainer" class="container">
         <canvas id="scatterDataCanvas" class="canvas" onclick="onClick(event)">
             Das Canvas kann in Ihrem Browser nicht angezeigt werden.
         </canvas>
-        <script src="./scattervis.js"></script>
+        <!-- local javascript -->
+        <script src="scattervis.js"></script>
+        <!-- external javascript -->
+        <script src="https://d3js.org/d3-voronoi.v1.min.js"></script>s
     </div>
+<!--end canvas-->
 </body>
 </html>
