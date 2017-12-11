@@ -1,20 +1,17 @@
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
 
 body {
     font-family: "Roboto", sans-serif;
     margin-right: 0;
-}
-
-.title {
-    font-size: 35px;
-    position: absolute;
-    left: 40%;
-}
-
-[draggable]:hover {
-    cursor: move;
-}
-
-.sidenav {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    height:100%;
+    width:100%;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -22,32 +19,101 @@ body {
     /* Required to make elements draggable in old WebKit */
     -khtml-user-drag: element;
     -webkit-user-drag: element;
+}
+
+.title {
+    font-size: 35px;
+    position: absolute;
+    padding: 0px;
+    left: 40%;
+}
+
+.scattervis {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: calc(100% - 35pt - 20px);
+    width: calc(100% - 20px);
+    padding: 0px;
+    margin: 10px;
+}
+
+canvas {
+    border: 1px solid #000000;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+[draggable]:hover {
+    cursor: move;
+}
+
+.openbtn {
+    font-size:30px;
+    text-decoration: none;
+    padding: 8px 0px 0px 10px;
+    cursor:pointer;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.sidenav {
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #222;
     overflow-x: hidden;
+    overflow-y: auto;
     white-space: nowrap;
     transition: 0.5s;
 }
 
+.sidenav .closebtn {
+    color: #818181;
+    transition: 0.3s;
+    right: 250px;
+    font-size: 30px;
+    padding: 8px 8px 0px 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidenav .closebtn:hover {
+    color: #f1f1f1;
+}
+
 .sidenav .head {
     color: white ;
-    font-size: 20pt;
+    font-size: 22pt;
     display: block;
+    padding-top: 10px;
+}
+
+.sidenav .subhead {
+    color: white ;
+    font-size: 18pt;
+    display: block;
+    padding-top: 2px;
 }
 
 .sidenav .itemlist {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 0px 32px;
     text-decoration: none;
 }
 
 .sidenav .item {
     font-size: 15pt;
     color: #818181;
+    padding-left: 10px;
     display: block;
     transition: 0.3s;
 }
@@ -76,18 +142,18 @@ body {
 .sidenav .table {
     table-layout: fixed;
     font-size: 15pt;
-    color: #818181;
+    color: black;
     display: block;
 }
 
 .sidenav .table .number-input {
-    color: white;
+    color: black;
     font-family: "Roboto", sans-serif;
 }
 
 .sidenav .table .number-input:hover {
     cursor: pointer;
-    color: #f1f1f1;
+    color: #333333;
 }
 
 .sidenav .table .number-input:focus {
@@ -95,36 +161,18 @@ body {
     color: black;
 }
 
-.sidenav .closebtn {
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    right: 250px;
-    font-size: 30px;
-    padding: 8px 8px 8px 10px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.sidenav .closebtn:hover {
-    color: #f1f1f1;
-}
-
-.container {
-    height: 90vh;
-    width: 95vw;
-    padding-top: 10px;
-    padding-right: 0;
+.sidenav .textitem {
+    white-space: normal;
+    color: white;
+    font-size: 12pt;
+    transition: 0.0s;
     padding-left: 10px;
-    padding-bottom: 0px;
-    margin: 0;
-}
-
-.canvas {
-    border: 1px solid #000000;
+    padding-right: 8px;
+    padding-top: 0;
+    padding-bottom: 10px;
+    text-align: justify;
+    height: auto;
     width: 100%;
-    height: 100%;
-    margin: 0px 0px 0px 0px;
 }
 
 /* disable up and down arrows for number input fields */
