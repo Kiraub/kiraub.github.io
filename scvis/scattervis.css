@@ -91,6 +91,10 @@ canvas {
     color: #f1f1f1;
 }
 
+.sidenav input[type=file] {
+    display: none;
+}
+
 .sidenav .head {
     color: white ;
     font-size: 22pt;
@@ -108,6 +112,10 @@ canvas {
 .sidenav .itemlist {
     padding: 8px 8px 0px 32px;
     text-decoration: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    white-space: nowrap;
+    transition: 0.3s;
 }
 
 .sidenav .item {
@@ -130,8 +138,8 @@ canvas {
     cursor: pointer;
 }
 
-.sidenav .item label:hover {
-    cursor: pointer;
+.sidenav .item input[type=range] {
+    border: 1px solid white;
 }
 
 .sidenav .selector {

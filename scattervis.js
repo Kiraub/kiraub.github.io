@@ -71,18 +71,18 @@ function initCanvas() {
 }
 
 function initTable() {
-    let table = document.getElementById("data-table");    
+    let table = document.getElementById("data-table");
     for (let i = 0; i < DATA_LEN; ++i) {
         let row = table.insertRow(i + 1);
         row.insertCell(0).innerHTML = DATA_NAMES[i];
 
         let input = document.createElement("input");
-        input.id = "input" + i;        
-        input.type = "number";        
+        input.id = "input" + i;
+        input.type = "number";
         input.className = "number-input";
-        input.placeholder = "--";            
+        input.placeholder = "--";
         input.disabled = true;
-        input.value = "";     
+        input.value = "";
         input.step = "any";
         input.onchange = function() { onDataChange(i, input); };
         row.insertCell(1).appendChild(input);

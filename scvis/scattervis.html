@@ -13,24 +13,19 @@
 <div class="scattervis">
     <!--begin sidenav-->
         <span class="title">ScatterVis.js</span>
-        <script>
-        function openNav() {
-            document.getElementById("optionSidenav").style.width = "400px";
-        }
-
-        function closeNav() {
-            document.getElementById("optionSidenav").style.width = "0";
-        }
-        </script>
         <span class="openbtn" onclick="openNav()">&#9776; Open Menu</span>
         <br>
         <div id="optionSidenav" class="sidenav">
             <span class="closebtn" onclick="closeNav()">&times; Close Menu</span>
         <!-- layer related settings -->
-            <div id="layersettings" class="itemlist">
-                <div class="head">Layer Settings:</div>
+            <div id="layersettings" class="itemlist openedMenu">
+                <div class="head" onclick="toggleMenu('layersettings')">Layer Settings:</div>
                 <div id="visibility" class="itemlist">
                     <div class="subhead">Visibility:</div>
+                    <div class="item">
+                        <input type="checkbox" id="checkLiveUpdates" onchange="toggleLiveUpdates()">
+                        <label for="checkLiveUpdates">Live updates (only Shepard)</label>
+                    </div>
                     <div class="item">
                         <input type="checkbox" id="checkPoints" onchange="drawScatterData()">
                         <label for="checkPoints">Data Points</label>
@@ -46,6 +41,25 @@
                     <div class="item">
                         <input type="checkbox" id="checkMap" onchange="drawScatterData()">
                         <label for="checkMap">Map</label>
+                    </div>
+                </div>
+                <div id="transparency" class="itemlist">
+                    <div class="subhead">Transparency:</div>
+                    <div class="item">
+                        <label for="pointsAlpha">Points</label><br>
+                        <input value="1.0" type="range" id="pointsAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                    <div class="item">
+                        <label for="voronoiAlpha">Voronoi</label><br>
+                        <input value="0.5" type="range" id="voronoiAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                    <div class="item">
+                        <label for="shepardAlpha">Shepard</label><br>
+                        <input value="1.0" type="range" id="shepardAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                    <div class="item">
+                        <label for="mapAlpha">Map</label><br>
+                        <input value="1.0" type="range" id="mapAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
                     </div>
                 </div>
                 <div id="vieworder" class="itemlist">
@@ -65,8 +79,21 @@
                 </div>
             </div>
         <!-- Data related settings -->
-            <div id="datasettings" class="itemlist">
-                <div class="head">Data Settings:</div>
+            <div id="datasettings" class="itemlist openedMenu">
+                <div class="head" onclick="toggleMenu('datasettings')">Data Settings:</div>
+                <div class="itemlist">
+                    <div class="subhead">Import/Export Data Sets:</div>
+                    <div class="item">
+                        <button id="openFile" onclick="openFileDialog()">Import data...</button>
+                        <input id="fileDialog" type="file" accept="" onchange="updateSelectedFile()">
+                    </div>
+                    <div id="selectedFile" class="item" style="overflow-x: auto">
+                        No file selected
+                    </div>
+                    <div class="item">
+                        <button id="writeFile" onclick="writeFileDialog()">Export data...</button>
+                    </div>
+                </div>
                 <div class="itemlist">
                     <div class="subhead">Selected Data Set:</div>
                     <div class="item">
@@ -90,7 +117,7 @@
                 </div>
             </div>
         <!-- Help Text -->
-            <div id="helptext" class="itemlist">
+            <div id="helptext" class="itemlist" style="max-height: 50%">
                 <div class="head">Help:</div>
                 <div class="textitem">
                     Change the position of data points via drag and drop.
@@ -108,7 +135,10 @@
         </canvas>
     </div>
     <script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
-    <script src="scattervis.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/color.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/canvas.js"></script>
     <!--end canvas-->
 </div>
 <!--end scattervis area-->
