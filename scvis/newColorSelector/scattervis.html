@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <!-- external ressources -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+    <!-- local ressources -->
+    <link rel="stylesheet" href="css/scattervis.css"></link>
+    <title>Scatter Data Visualisation</title>
+
+<!-- color selector stuff-->
+    <link rel="stylesheet" href="css/ColorSelector.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js"></script>
+
+</head>
+<body onresize="doResize()">
+<!--begin scattervis area-->
+<div class="scattervis">
+    <!--begin sidenav-->
+        <span class="title">ScatterVis.js</span>
+        <span class="openbtn" onclick="openNav()">&#9776; Open Menu</span>
+        <br>
+        <div id="optionSidenav" class="sidenav">
+            <span class="closebtn" onclick="closeNav()">&times; Close Menu</span>
+        <!-- layer related settings -->
+            <div id="layersettings" class="itemlist openedMenu">
+                <div class="head" onclick="toggleMenu('layersettings')">Layer Settings:</div>
+                <div id="visibility" class="itemlist">
+                    <div class="subhead">Visibility:</div>
+                    <div class="item">
+                        <input type="checkbox" id="checkLiveUpdates" onchange="toggleLiveUpdates()">
+                        <label for="checkLiveUpdates">Live updates (only Shepard)</label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="checkPoints" onchange="drawScatterData()">
+                        <label for="checkPoints">Data Points</label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="checkVoronoi" onchange="drawScatterData()">
+                        <label for="checkVoronoi">Voronoi</label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="checkShepard" onchange="drawScatterData()">
+                        <label for="checkShepard">Shepard</label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="checkMap" onchange="drawScatterData()">
+                        <label for="checkMap">Map</label>
+                    </div>
+                </div>
+                <div id="transparency" class="itemlist">
+                    <div class="subhead">Transparency:</div>
+                    <div class="item">
+                        <label for="pointsAlpha">Points</label><br>
+                        <input value="1.0" type="range" id="pointsAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                    <div class="item">
+                        <label for="voronoiAlpha">Voronoi</label><br>
+                        <input value="0.5" type="range" id="voronoiAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                    <div class="item">
+                        <label for="shepardAlpha">Shepard</label><br>
+                        <input value="1.0" type="range" id="shepardAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                    <div class="item">
+                        <label for="mapAlpha">Map</label><br>
+                        <input value="1.0" type="range" id="mapAlpha" max="1.0" min="0.0" step="0.01" onchange="drawScatterData()">
+                    </div>
+                </div>
+                <div id="vieworder" class="itemlist">
+                    <div class="subhead">View order:</div>
+                    <div id="1" class="item drag" draggable="true">
+                        Points
+                    </div>
+                    <div id="2" class="item drag" draggable="true">
+                        Voronoi
+                    </div>
+                    <div id="3" class="item drag" draggable="true">
+                        Shepard
+                    </div>
+                    <div id="4" class="item drag" draggable="true">
+                        Map
+                    </div>
+                </div>
+                <div id="color" class="itemlist">
+
+                    <div class="subhead">Color:</div>
+                    <div class="cs" id="cs"></div>
+                </div>
+            </div>
+        <!-- Data related settings -->
+            <div id="datasettings" class="itemlist openedMenu">
+                <div class="head" onclick="toggleMenu('datasettings')">Data Settings:</div>
+                <div class="itemlist">
+                    <div class="subhead">Import/Export Data Sets:</div>
+                    <div class="item">
+                        <button id="openFile" onclick="openFileDialog()">Import data...</button>
+                        <input id="fileDialog" type="file" accept="" onchange="updateSelectedFile()">
+                    </div>
+                    <div id="selectedFile" class="item" style="overflow-x: auto">
+                        No file selected
+                    </div>
+                    <div class="item">
+                        <button id="writeFile" onclick="writeFileDialog()">Export data...</button>
+                    </div>
+                </div>
+                <div class="itemlist">
+                    <div class="subhead">Selected Data Set:</div>
+                    <div class="item">
+                        <select id="dataSelector" class="selector" onchange="onDataSetChange()"></select>
+                    </div>
+                </div>
+                <div class="itemlist">
+                    <div class="subhead">Selected Data Point:</div>
+                    <div class="item">
+                        <table id="data-table" class="w3-table-all table">
+                            <colgroup>
+                                <col width="130px">
+                                <col>
+                            </colgroup>
+                            <tr>
+                                <th>Data Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <!-- Help Text -->
+            <div id="helptext" class="itemlist" style="max-height: 50%">
+                <div class="head">Help:</div>
+                <div class="textitem">
+                    Change the position of data points via drag and drop.
+                    Add new points by pressing and holding the "Ctrl"-Key and clicking on the canvas. Delete existing points by pressing and holding the "Shift"-Key and clicking on the point.
+                </div>
+            </div>
+        </div>
+    <!--end sidenav-->
+    <!--begin canvas-->
+    <div id="canvasContainer" class="container">
+        <canvas id="scatterDataCanvas" onclick="onClick(event)" 
+        onmousedown="onMouseDown(event)" onmousemove="onMouseMove(event)"
+                onmouseup="onMouseUp(event)" onmouseout="onMouseOut(event)">
+            Das Canvas kann in Ihrem Browser nicht angezeigt werden.
+        </canvas>
+    </div>
+
+    <script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
+    <script src="js/ColorSelector.js"></script>
+    <script src="js/ColorMapper.js"></script>
+    <script src="js/Constants.js"></script>
+    <script src="./js/color_schemes.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/color.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/canvas.js"></script>
+
+    <!--end canvas-->
+</div>
+<!--end scattervis area-->
+
+</body>
+</html>

@@ -9,8 +9,10 @@ let closedSym = "&#9206;";
 
 initTable();
 initDataSelector();
-initColorSchemeSelector();
 initSubMenus();
+const cscontainer = document.getElementById('cs');
+const cs = new ColorSelector(cscontainer, null);
+selectedColorScheme = new ColorScheme(cs.getColorScheme());
 
 // functions to handle the table and selector as well as editing data
 
@@ -42,21 +44,6 @@ function initDataSelector() {
         selector.appendChild(option);
     }
     selector.value = selectedDataIndex;
-}
-
-function initColorSchemeSelector() {
-    let selector = document.getElementById("colorSchemeSelector");
-    let names = Object.keys(COLOR_SCHEMES);
-    names.forEach(name => {
-        let scheme = COLOR_SCHEMES[name];
-        let option = document.createElement("option");
-        option.value = name;
-        option.innerHTML = name;
-        selector.appendChild(option);
-    });
-    selectedColorScheme = new ColorScheme(DEFAULT_SCHEME);
-    let stops = COLOR_SCHEMES[DEFAULT_SCHEME]["7"].join(",");
-    selector.style.background = "linear-gradient(to right, " + stops + ")";
 }
 
 function setSelectedDataPoint(p) {
@@ -103,6 +90,11 @@ function onColorSchemeChange() {
     selector.style.background = "linear-gradient(to right, " + stops + ")";
 
     //voronoiDiagram = null;
+    drawScatterData();
+}
+
+function onSelectorChange(newScheme) {
+    selectedColorScheme = new ColorScheme(newScheme);
     drawScatterData();
 }
 
