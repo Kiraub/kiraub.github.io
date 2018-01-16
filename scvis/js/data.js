@@ -1,11 +1,14 @@
 
 // The names of the data sets
-let DATA_NAMES = ["Depth",
+const DATA_NAMES = ["Depth",
                     "Salt %",
                     "Oxygen %",
                     ];
 // The required length of data arrays
 let DATA_LEN = DATA_NAMES.length;
+
+const MAP_W = 100;
+const MAP_H = 60;
 
 let dataList = [
     scatterData(30, 10, [1.6, 0.037, 10.5]),
@@ -13,6 +16,16 @@ let dataList = [
     scatterData(70, 20, [2.5, 0.055, 10.1]),
     scatterData(50, 30, [0.2, 0.041,  8.7]),
 ]
+
+// coordinates should lay within {0, 0} and {MAP_W, MAP_H}
+// and be in counter-clockwise order ({0, 0} is top-left)
+const MAP_OUTLINE = [
+    {x:  5, y:  5},
+    {x:  5, y: 55},
+    {x: 90, y: 50},
+    {x: 85, y: 25},
+    {x: 90, y:  5},
+];
 
 /**
     @param:

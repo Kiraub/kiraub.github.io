@@ -77,6 +77,12 @@
                         Map
                     </div>
                 </div>
+                <div id="color" class="itemlist">
+                    <div class="subhead">Color:</div>
+                    <div class="item">
+                        <select id="colorSchemeSelector" class="selector" onchange="onColorSchemeChange()"></select>
+                    </div>
+                </div>
             </div>
         <!-- Data related settings -->
             <div id="datasettings" class="itemlist openedMenu">
@@ -97,7 +103,7 @@
                 <div class="itemlist">
                     <div class="subhead">Selected Data Set:</div>
                     <div class="item">
-                        <select id="data-selector" class="selector" onchange="onDataSetChange()"></select>
+                        <select id="dataSelector" class="selector" onchange="onDataSetChange()"></select>
                     </div>
                 </div>
                 <div class="itemlist">
@@ -135,6 +141,7 @@
         </canvas>
     </div>
     <script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
+    <script src="./js/color_schemes.js"></script>
     <script src="./js/data.js"></script>
     <script src="./js/color.js"></script>
     <script src="./js/menu.js"></script>

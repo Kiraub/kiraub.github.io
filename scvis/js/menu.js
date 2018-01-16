@@ -1,13 +1,15 @@
 
 let selectedDataPoint = null;
 let selectedDataIndex = 0;
+let selectedColorScheme = null;
 
 let subMenus;
 let openedSym = "&#9207;";
 let closedSym = "&#9206;";
 
 initTable();
-initSelector();
+initDataSelector();
+initColorSchemeSelector();
 initSubMenus();
 
 // functions to handle the table and selector as well as editing data
@@ -31,8 +33,8 @@ function initTable() {
     }
 }
 
-function initSelector() {
-    let selector = document.getElementById("data-selector");
+function initDataSelector() {
+    let selector = document.getElementById("dataSelector");
     for (let i = 0; i < DATA_LEN; ++i) {
         let option = document.createElement("option");
         option.value = i;
@@ -40,6 +42,23 @@ function initSelector() {
         selector.appendChild(option);
     }
     selector.value = selectedDataIndex;
+}
+
+function initColorSchemeSelector() {
+    let selector = document.getElementById("colorSchemeSelector");
+    let names = Object.keys(COLOR_SCHEMES);
+    names.forEach(name => {
+        let scheme = COLOR_SCHEMES[name];
+        let option = document.createElement("option");
+        option.value = name;
+        option.innerHTML = name;
+        let stops = COLOR_SCHEMES[name]["7"].join(",");
+        option.style.background = "linear-gradient(to right, " + stops + ")";
+        selector.appendChild(option);
+    });
+    selectedColorScheme = new ColorScheme(DEFAULT_SCHEME);
+    let stops = COLOR_SCHEMES[DEFAULT_SCHEME]["7"].join(",");
+    selector.style.background = "linear-gradient(to right, " + stops + ")";
 }
 
 function setSelectedDataPoint(p) {
@@ -71,10 +90,21 @@ function onDataChange(dataIndex, input) {
 }
 
 function onDataSetChange() {
-    let selector = document.getElementById("data-selector");
-    selectedDataIndex = selector.selectedIndex;
+    let selector = document.getElementById("dataSelector");
+    selectedDataSet = selector.selectedIndex;
 
     voronoiDiagram = null;
+    drawScatterData();
+}
+
+function onColorSchemeChange() {
+    let selector = document.getElementById("colorSchemeSelector");
+    let value = selector.value;
+    selectedColorScheme = new ColorScheme(value);
+    let stops = COLOR_SCHEMES[value]["7"].join(",");
+    selector.style.background = "linear-gradient(to right, " + stops + ")";
+
+    //voronoiDiagram = null;
     drawScatterData();
 }
 

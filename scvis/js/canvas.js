@@ -1,14 +1,10 @@
-
-const MAP_W = 100;
-const MAP_H = 60;
-
 let canvas = document.getElementById("scatterDataCanvas");
 let context = canvas.getContext("2d");
 let w, h;
 
 let voronoiDiagram = null;
 
-let liveUpdates = document.getElementById("checkLiveUpdates");
+let liveUpdates = document.getElementById("checkLiveUpdates").checked;
 function toggleLiveUpdates() {
     liveUpdates = document.getElementById("checkLiveUpdates").checked;
 }
@@ -26,7 +22,7 @@ drawScatterData();
 function doResize() {
     initCanvas();
     voronoiDiagram = null;
-    drawScatterData();
+    drawScatterData(false);
 }
 
 // initialize and draw the canvas
@@ -57,7 +53,7 @@ function drawScatterData(liveShepard = true) {
 
     // draw backmost first and frontmost last
     var drawNr;
-    for( drawNr = layerOrder.length-1; drawNr >= 0; drawNr -= 1) {
+    for(drawNr = layerOrder.length - 1; drawNr >= 0; drawNr -= 1) {
         if (liveShepard && checkShepard.checked && layerOrder[drawNr] == "Shepard")
             drawShepardLayer(data);
         if (checkVoronoi.checked && layerOrder[drawNr] == "Voronoi")
@@ -66,7 +62,7 @@ function drawScatterData(liveShepard = true) {
             drawPointLayer(data);
         if (checkMap.checked && layerOrder[drawNr] == "Map")
             drawMapLayer(data);
-    }
+    }    
 }
 
 function setPixel(image, x, y, color) {
@@ -148,11 +144,30 @@ function drawShepardLayer(data) {
             let color = toColor(sum / totalDist, shepardAlpha);
             setPixel(image, x, y, color);
         }
-    context.putImageData(image, 0, 0);
+    
+    context.putImageData(image, 0, 0);    
 }
 
-function drawMapLayer(data) {
-    console.log("Map layer not implemented yet");
+function drawMapLayer(data) {        
+    context.beginPath();    
+    context.lineTo(0, 0);
+    context.lineTo(w, 0);    
+    context.lineTo(w, h);
+    context.lineTo(0, h);
+    context.lineTo(0, 0);
+    for (let i = 0; i < MAP_OUTLINE.length; ++i) {
+        let x = MAP_OUTLINE[i].x * w / MAP_W;
+        let y = MAP_OUTLINE[i].y * h / MAP_H;
+        context.lineTo(x, y);
+    }
+    context.lineTo(MAP_OUTLINE[0].x * w / MAP_W, MAP_OUTLINE[0].y * h / MAP_H);
+    context.closePath();    
+    let alpha = document.getElementById("mapAlpha").value;
+    context.fillStyle = "rgba(127, 127, 127, " + alpha + ")";
+    context.fill();    
+    context.strokeStyle = "black";    
+    context.lineWidth = 2;
+    context.stroke();
 }
 
 function normalizedData() {
