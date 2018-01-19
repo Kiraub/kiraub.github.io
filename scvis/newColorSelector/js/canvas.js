@@ -215,7 +215,13 @@ function onMouseDown(event) {
     draggedPoint = getDataPointAt(x, y);
     draggedPointSource = scatterData(x, y, null);
     setSelectedDataPoint(draggedPoint);
-    drawScatterData();
+    if(draggedPoint) {
+        if(liveUpdates) {
+            drawScatterData();
+        } else {
+            drawScatterData(false);
+        }
+    }
 }
 
 function onMouseMove(event) {
