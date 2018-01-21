@@ -201,7 +201,7 @@ function initSubMenus() {
         menus[j].childNodes.item(1).innerHTML = openedSym + menus[j].childNodes.item(1).innerHTML;
         let id = menus[j].id;
         let openedHeight = menus[j].clientHeight;
-        let closedHeight = menus[j].childNodes.item(1).clientHeight + 8;
+        let closedHeight = menus[j].childNodes.item(1).clientHeight + 10;
         menus[j].style.height = String(openedHeight + "px");
         let sub = subMenu(id, openedHeight, closedHeight);
         subMenus.push(sub);

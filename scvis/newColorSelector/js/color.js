@@ -1,7 +1,5 @@
 
 function ColorScheme(schemeName) {
-    console.log("ScatterVis color selector:");
-    console.log(schemeName);
     let scheme = COLOR_SCHEMES[schemeName];
     let maxSteps = Math.max(...Object.keys(scheme));
     let steps = scheme[maxSteps].map((rgb) => {        

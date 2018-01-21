@@ -62,7 +62,7 @@ function drawScatterData(liveShepard = true) {
             drawPointLayer(data);
         if (checkMap.checked && layerOrder[drawNr] == "Map")
             drawMapLayer(data);
-    }    
+    }
 }
 
 function setPixel(image, x, y, color) {
@@ -191,6 +191,12 @@ function normalizedData() {
 }
 
 // functions for editing data points
+
+function onDataListChange() {
+    scatterDataList = dataList;
+    voronoiDiagram = null;
+    drawScatterData();
+}
 
 function onClick(event) {
     let rect = canvas.getBoundingClientRect();

@@ -99,6 +99,10 @@ canvas {
     cursor: pointer;
 }
 
+.sidenav .closedMenu .head {
+    border-bottom: solid 2px white;
+}
+
 .sidenav .closedMenu .head:hover {
     cursor: pointer;
 }

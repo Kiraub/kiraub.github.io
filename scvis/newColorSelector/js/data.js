@@ -1,3 +1,4 @@
+"use strict"
 
 // The names of the data sets
 const DATA_NAMES = ["Depth",
@@ -50,11 +51,33 @@ function openFileDialog() {
 
 function updateSelectedFile() {
     let dialog = document.getElementById("fileDialog");
-    document.getElementById("selectedFile").innerHTML =  dialog.files[0].name;
-    //TODO read the file and change the data accordingly
-    drawScatterData();
+    let jsonFile = dialog.files[0];
+    let fileData;
+    let reader = new FileReader();
+    document.getElementById("selectedFile").innerHTML =  jsonFile.name;
+    reader.onload = (function (file) {
+        dataList = JSON.parse(reader.result);
+        onDataListChange();
+    });
+    reader.readAsText(jsonFile);
 }
 
 function writeFileDialog() {
-    //TODO
+    let content = JSON.stringify(dataList, null, 4);
+    download('data.json', content);
+}
+
+function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
 }

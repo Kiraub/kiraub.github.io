@@ -58,9 +58,6 @@ function ColorSelector(container, init) {
     }
 
     this.onselect = function (colormapname) {
-        console.log("Spiral color selector:");
-        console.log(colormapname);
-
         let stops = Constants.COLORBREWER[label.textContent]["7"].join(",");
         head.style.background = "linear-gradient(to left, " + stops + ")";
 
