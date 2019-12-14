@@ -1,70 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Kiraub's Homepage</title>
+  <!-- Comment of WebSlides author left in place for good karma. -->
+  <!-- CLEAN MARKUP = GOOD KARMA.
+      Hi source code lover,
 
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    <link href="/style.css" type="text/css" rel="stylesheet">
+      you're a curious person and a fast learner ;)
+      Let's make something beautiful together. Contribute on Github:
+      https://github.com/webslides/webslides
 
+      Thanks,
+      @jlantunez.
+    -->
+
+  <!-- SEO -->
+  <title>Kiraub's homepage</title>
+  <meta name="description" content="GitHub hosted website for my projects">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+    rel="stylesheet">
+
+  <!-- CSS Base -->
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+  <!-- Optional - CSS SVG Icons (Font Awesome) -->
+  <link rel="stylesheet" type="text/css" media="all" href="static/css/svg-icons.css">
+
+  <!-- FAVICONS -->
+  <link rel="shortcut icon" sizes="16x16" href="static/images/favicons/favicon.png">
+  <link rel="shortcut icon" sizes="32x32" href="static/images/favicons/favicon-32.png">
+  <link rel="apple-touch-icon icon" sizes="76x76" href="static/images/favicons/favicon-76.png">
+  <link rel="apple-touch-icon icon" sizes="120x120" href="static/images/favicons/favicon-120.png">
+  <link rel="apple-touch-icon icon" sizes="152x152" href="static/images/favicons/favicon-152.png">
+  <link rel="apple-touch-icon icon" sizes="180x180" href="static/images/favicons/favicon-180.png">
+  <link rel="apple-touch-icon icon" sizes="192x192" href="static/images/favicons/favicon-192.png">
+
+  <!-- Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#333333">
 </head>
 
 <body>
+  <main role="main">
+    <article id="webslides" class="vertical">
 
-<!--begin sidenav-->
-    <div class="pagehead">
-        <center>
-            <span style="cursor:pointer;position: absolute; left:10px;" onclick="openNav()">&#9776; Open Menu</span>
-            <span>Kiraub's Homepage</span>
-        </center>
-    </div>
-    <script>
-    function openNav() {
-        document.getElementById("homeSideNav").style.width = "400px";
-    }
-
-    function closeNav() {
-        document.getElementById("homeSideNav").style.width = "0";
-    }
-    </script>
-    <br>
-    <div id="homeSideNav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; Close Menu</a>
-        <div id="pagelinks" class="itemlist">
-            <div class="item">
-                <div class="head"><a href="/index.html">Home</a></div>
-                <div class="head">WebSlides presentations</div>
-                <div class="item">
-                    <a href="/webslides/adchange.html">Ads change</a>
-                </div>
-                <div class="item">
-                    <a href="/webslides/paradigm.html">Programming paradigms</a>
-                </div>
-                <div class="head">Some p5.js tests:</div>
-                <div class="item">
-                    <a href="/p5/testing.html">Testing Stuff</a><br>basically just trying out stuff
-                </div>
-                <div class="item">
-                    <a href="/p5/sketch.html">Sketch</a><br>a little canvas to draw on
-                </div>
-                <div class="item">
-                    <a href="/p5/snake.html">Snake</a><br>WIP until ... later ..
-                </div>
-                <div class="head">University Project</div>
-                <div class="item">
-                    <a href="/scvis/scvis.html">Visualization</a>
-                </div>
-                <div class="head">Pagebuilder test</div>
-                <div class="item">
-                    <a href="/pagebuilder.html">Click click</a>
-                </div>
-            </div>
+      <!-- Quick Guide
+        - Each parent <section> in the <article id="webslides"> element is an individual slide.
+        - Vertical sliding = <article id="webslides" class="vertical">
+        - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+      -->
+      <!-- Title page -->
+      <section>
+        <div class="aligncenter">
+          <h1>Kiraub's homepage</h1>
+          <p>Welcome to my homepage! See the pages below for links to my projects!</p>
         </div>
+      </section>
+      <!-- end title page -->
+      <section class="aligncenter">
+          <h1>German presentation: "Werbung im Wandel"</h1>
+        
+          <p>A presentation about how advertisement in Germany changed over the past years. Written in German.</p>
+        
+          <p>Have a look at it here: <a href="adchange.html">WebSlides</a></p>
+
+      </section>
+      <section class="aligncenter">
+          <h1>Programming presentation: "Programmierparadigmen"</h1>
+          <p>An abridged look at the existing proramming paradigms and some example use cases. Written in German.</p>
+          <p>Have a look at it here: <a href="paradigm.html">WebSlides</a></p>
+
+      </section>
+
+    </article>
+  </main>
+  <!-- end main -->
+
+  <!-- A global footer -->
+
+  <footer>
+    <div class="alignright">
+      <p>Created by<a href="https://github.com/Kiraub">@Kiraub</a>, using <a href="https://twitter.com/webslides">@webslides</a>.</p>
     </div>
-<!--end sidenav-->
+  </footer>
 
-<h2>Welcome!</h2>
+  <!-- end gloabl footer-->
 
-<p>Hello and thanks for checking out my website. There is not much to see for now as I am getting around working with web-development. Feel free to use the menu to look around!</p>
-
+  <!-- Required -->
+  <script src="static/js/webslides.js"></script>
+  <script>
+    window.ws = new WebSlides();
+  </script>
+  <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+  <script defer src="static/js/svg-icons.js"></script>
 </body>
+
+</html>
