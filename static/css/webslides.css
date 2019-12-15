@@ -3158,7 +3158,7 @@ Slides - Backgrounds <section class="bg-primary">
   background-color: #346; }
 
 .bg-brown {
-  background-color: #f9f8f2; }
+  background-color: #f9f7f2; }
 
 .bg-gray {
   background-color: #d5d9e2; }
@@ -3178,6 +3178,15 @@ Slides - Backgrounds <section class="bg-primary">
 .bg-facebook {
   background-color: #3b5998; }
 
+/*@kiraub added background colors*/
+.bg-darkbrown {
+  background-color: #a57922; }
+
+.bg-darkyellow {
+  background-color: rgb(124, 111, 12);
+}
+/*@kiraub-end*/
+
 [class*='bg-'] .bg-white {
   color: #333;
   text-shadow: none; }
@@ -3188,6 +3197,10 @@ Slides - Backgrounds <section class="bg-primary">
   background: linear-gradient(to bottom, #000 0%, #1a2028 50%, #293845 100%); }
 
 /*Font Color*/
+/*@kiraub added background colors*/
+.bg-darkbrown,
+.bg-darkyellow,
+/*@kiraub-end*/
 .bg-trans-dark,
 .bg-trans-gradient,
 .bg-primary,
