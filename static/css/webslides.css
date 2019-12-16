@@ -360,7 +360,8 @@ webslides.js will add .ws-ready automatically. Don't worry :) -- */
   -webkit-overflow-scrolling: touch;
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: scroll; }
+  /* @kiraub changed from overflow-y: scroll; */
+  overflow-y: auto; }
   #webslides::-webkit-scrollbar {
     display: none; }
 
