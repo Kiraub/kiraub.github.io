@@ -30,6 +30,9 @@
   <!-- CSS Base -->
   <link rel="stylesheet" type='text/css' media='all' href="/static/css/webslides.css">
 
+  <!-- Additional CSS by @kiraub -->
+  <link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
+
   <!-- Optional - CSS SVG Icons (Font Awesome) -->
   <link rel="stylesheet" type="text/css" media="all" href="/static/css/svg-icons.css">
 
@@ -160,18 +163,18 @@
         <div>
           <h5>Ein Pseudo-Code Beispiel:</h5>
           <div class="bg-black-blue">
-            <pre><code><p class="code-comment">// Programm, welches eine Zahl 'base' hoch 'exp' rechnet
-// Negative Exponenten werden nicht unterstützt</p>
-var base, exp Integer;
-base  = Read;
-exp   = Read;
-if exp == 0:
+            <pre><code><span class="code-comment">// Programm, welches eine Zahl 'base' hoch 'exp' rechnet
+// Negative Exponenten werden nicht unterstützt</span>
+<span class="code-declaration">var</span> base, exp <span class="code-type">Integer</span>;
+base  = <span class="code-identifier">Read</span>;
+exp   = <span class="code-identifier">Read</span>;
+<span class="code-keyword">if</span> exp == 0:
   base = 1;
-else:
-  while exp > 1:
+<span class="code-keyword">else</span>:
+  <span class="code-keyword">while</span> exp > 1:
     base  = base * base;
     exp   = exp - 1;
-Write base;
+<span class="code-identifier">Write</span> base;
 </code></pre>
           </div>
         </div>
@@ -216,18 +219,18 @@ Write base;
         <div>
           <h5>Nochmal das Pseudo-Code Beispiel, mit Prozeduren:</h5>
           <div class="bg-black-blue">
-            <pre><code><p class="code-comment">// Prozedur, welche eine Zahl 'base' hoch 'exp' rechnet
-// Negative Exponenten werden nicht unterstützt</p>
-proc Pow(base, exp Integer) Integer:
-  if exp == 0:
-    return 1;
-  while exp > 1:
-    base  = Sqr(base);
+            <pre><code><span class="code-comment">// Prozedur, welche eine Zahl 'base' hoch 'exp' rechnet
+// Negative Exponenten werden nicht unterstützt</span>
+<span class="code-declaration">proc</span> <span class="code-identifier">Pow</span>(base, exp <span class="code-type">Integer</span>) <span class="code-type">Integer</span>:
+  <span class="code-keyword">if</span> exp == 0:
+    <span class="code-keyword">return</span> 1;
+  <span class="code-keyword">while</span> exp > 1:
+    base  = <span class="code-identifier">Sqr</span>(base);
     exp   = exp - 1;
-  return base;
+  <span class="code-keyword">return</span> base;
 
-proc Sqr(base Integer) Integer:
-  return base * base;
+<span class="code-declaration">proc</span> <span class="code-identifier">Sqr</span>(base <span class="code-type">Integer</span>) <span class="code-type">Integer</span>:
+  <span class="code-keyword">return</span> base * base;
 </code></pre>
           </div>
         </div>
@@ -248,17 +251,86 @@ proc Sqr(base Integer) Integer:
           <hr>
         </div>
         <div>
+          <div class="aligncenter">
+            <q> Alle Probleme der Computertechnik können durch eine weitere Schicht der Abstraktion gelöst werden. </q>
+            <!--
+              Bewusst falsch zitiert
+              Richtiges Zitat:
+              David Wheeler "All problems in computer science can be solved by another level of indirection"
+              https://en.wikipedia.org/wiki/Abstraction_layer#cite_note-1
+            -->
+          </div>
+          <br>
           <h5>Der Anreiz:</h5>
           <ul>
-            <li>Eigenschaften wiederverwenden durch Vererbung</li>
-            <li>Hierarchische Struktur grenzt </li>
+            <li>Abbilden des betreffendes Teils der Realität in der Anwendung</li>
+            <li>Simples erweitern von bestehenden Programmkonstrukten</li>
+            <li>Verstecken komplexer Algorithmen</li>
           </ul>
           <h5>Kerneigenschaften:</h5>
           <ul>
-            <li>Aufsplitten von Problemen in Teilprobleme</li>
-            <li>Aufruf von Unterprozeduren durch definierte Schnittstelle</li>
-            <li>Übergabe von Werten an Unter-/ Oberprozeduren</li>
+            <li>Klassen-/ und Objektkonzept</li>
+            <li>Methoden anstelle von Funktionen</li>
+            <li>Weitergabe von Eigenschaften & Verhalten durch Vererbung</li>
+            <li>Hierarchische Struktur grenzt Schnittstellen ab</li>
+            <li>Sichtbarkeitsmodifikatoren bestimmen Zugriffsrechte</li>
           </ul>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Objektorientierte Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Erneut ein Pseudo-Code Beispiel:</h5>
+          <div class="bg-black-blue">
+            <pre><code><span class="code-comment">// Ausschnitt eines OOP Taschenrechners
+// Dieser kann jedoch lediglich die Grundrechenarten</span>
+<span class="code-declaration">class</span> Calculator:
+  <span class="code-declaration">public</span> Calculator():
+    <span class="code-keyword">return</span> this;
+
+  <span class="code-declaration">public</span> <span class="code-identifier">Add</span>(x, y <span class="code-type">Integer</span>) <span class="code-type">Integer</span>:
+    <span class="code-keyword">return</span> x + y;
+
+  <span class="code-declaration">public</span> <span class="code-identifier">Substract</span>(x, y <span class="code-type">Integer</span>) <span class="code-type">Integer</span>:
+    <span class="code-keyword">return</span> x - y;
+
+  <span class="code-declaration">public</span> <span class="code-identifier">Multiply</span>(x, y <span class="code-type">Integer</span>) <span class="code-type">Integer</span>:
+    <span class="code-keyword">return</span> x * y;
+
+  <span class="code-declaration">public</span> <span class="code-identifier">Divide</span>(x, y <span class="code-type">Integer</span>) <span class="code-type">Integer</span>:
+    <span class="code-keyword">return</span> x / y;
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Objektorientierte Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Alternatives Pseudo-Code Beispiel:</h5>
+          <div class="bg-black-blue">
+            <pre><code><span class="code-comment">/* Ausschnitt eines OOP Taschenrechners
+   Dieser kann jedoch lediglich die Grundrechenarten
+   Dafür nutzt er Standard-Bibliotheken, um zum Beispiel Division durch Null besser zu verarbeiten
+*/</span>
+<span class="code-keyword">from</span> <span class="code-string">"Math"</span> <span class="code-keyword">include</span>:
+  <span class="code-string">"Adder"</span>
+  <span class="code-string">"Substracter"</span>
+  <span class="code-string">"Multiplier"</span>
+  <span class="code-string">"Divider"</span>
+
+<span class="code-declaration">class</span> Calculator <span class="code-declaration">extends</span> <span class="code-type">Adder</span>, <span class="code-type">Substracter</span>, <span class="code-type">Multiplier</span>, <span class="code-type">Divider</span>:
+  <span class="code-declaration">public</span> Calculator():
+    <span class="code-keyword">return</span> this;
+</code></pre>
+          </div>
         </div>
       </section>
 
@@ -306,11 +378,14 @@ proc Sqr(base Integer) Integer:
       <!-- New section level 2 -->
       <section class="slide-top">
         <div class="wrap">
-          <h2>Quellen</h2>
+          <div class="aligncenter">
+            <h2>Quellen</h2>
+          </div>
           <p>
             Alle Links verweisen auf jeweilige web.archive.org Einträge um auch in Zukunft (hoffentlich) noch verfügbar
             zu sein.
           </p>
+          <hr>
           <div>
             <ul>
               <li>
@@ -359,14 +434,21 @@ proc Sqr(base Integer) Integer:
                 <!--https://de.wikipedia.org/wiki/Logische_Programmierung -->
                 <a target="blank"
                   href="https://web.archive.org/web/20181229201716/https://de.wikipedia.org/wiki/Logische_Programmierung">
-                  Logische Programmierung
+                  Logische Programmierung (de.wikipedia.org)
                 </a>
               </li>
               <li>
                 <!-- https://de.wikipedia.org/wiki/Funktionale_Programmierung -->
                 <a target="blank"
                   href="https://web.archive.org/web/20191203154523/https://de.wikipedia.org/wiki/Funktionale_Programmierung">
-                  Funktionale Programmierung
+                  Funktionale Programmierung (de.wikipedia.org)
+                </a>
+              </li>
+              <li>
+                <!-- https://en.wikipedia.org/wiki/Abstraction_layer -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20191204033216/https://en.wikipedia.org/wiki/Abstraction_layer">
+                  Abtraction Layer (en.wikipedia.org)
                 </a>
               </li>
             </ul>
