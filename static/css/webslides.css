@@ -163,12 +163,13 @@ blockquote,
 q {
   quotes: '' ''; }
 
+/* @kiraub commented out to enable quotation marks
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
   content: ''; }
-
+*/
 table {
   border-collapse: collapse;
   border-spacing: 0;
