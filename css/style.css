@@ -1,0 +1,39 @@
+blockquote, q {
+    font-style: italic;
+}
+
+blockquote:lang(de), q:lang(de) {
+    quotes: '\201e' '\201d';
+}
+
+/* Code highlighting */
+
+/* uncomment this to disable highlighting
+pre>code>[class*="code-"] {
+    color: inherit!important
+}
+*/
+
+pre>code>.code-comment {
+    color: lightgreen;
+}
+
+pre>code>.code-identifier {
+    color: yellow;
+}
+
+pre>code>.code-keyword {
+    color: lightcoral;
+}
+
+pre>code>.code-declaration {
+    color: skyblue;
+}
+
+pre>code>.code-type {
+    color: greenyellow;
+}
+
+pre>code>.code-string {
+    color: orange;
+}
