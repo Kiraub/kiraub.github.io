@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Comment of WebSlides author left in place for good karma. -->
+  <!-- Comment of WebSlides author left in place. Good karma to you. @kiraub -->
+
   <!-- CLEAN MARKUP = GOOD KARMA.
       Hi source code lover,
 
@@ -56,21 +57,349 @@
         - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
       -->
 
+      <!-- New section level 1 -->
       <section>
-        <h1>Programmierparadigmen</h1>
-        <p>Ein Einblick anhand von Anwendungsbeispielen</p>
+        <div class="aligncenter">
+          <h1>Programmierparadigmen</h1>
+          <p>Ein Einblick anhand von Anwendungsbeispielen</p>
+          <hr>
+        </div>
+      </section>
+
+      <!-- New section level 2 -->
+      <section>
+        <div class="aligncenter">
+          <h2>Einleitung</h2>
+          <hr>
+        </div>
+        <div>
+          <h4>Ziel des Vortrags</h4>
+          <p>Warum nicht alles imperativ?</p>
+          <!--
+            Ziel des Vortrags:
+            - Perspektive geben, wie deklarative Sprachen Problem lösen
+            - Gemeinsamkeiten, Unterschiede aufweisen
+            - Horizont erweitern, deklarative Inspiration innerhalb imperativen Sprachen
+            - Werkzeug, Probleme zu lösen
+            - kein Anspruch auf Vollständigkeit(!)
+          -->
+          <h4>Vorwissen</h4>
+          <p>Was kennt ihr schon?</p>
+          <!--
+            Fragen an das Publikum bzgl. vorhandenem Wissen:
+            - Woher Begriffe bekannt: "deklarativ", "imperativ", "logisch", "funktional"
+            - Wer Erfahrung mit logischer/ funktionaler Programmierung
+            -> mglw. nicht viele, dennoch in imperativer Sprache "lambda"-Funktionen verwendet
+          -->
+          <h4>Begriffsklärung</h4>
+          <p>Worum geht's eigentlich?</p>
+          <!--
+            Begriffsklärung:
+            - Programmierparadigmen unterscheiden Arten von Herangehensweisen an Programmierung
+            - Imperativ   -> WIE ist es zu tun
+              - Strukturiert      => Befehlssequenz
+              - Prozedural        => Strukturiert + Prozeduren (Code-Recycling)
+              - Objektorientiert  => Alles ist ein Objekt
+            - Deklarativ  -> WAS ist zu tun
+              - Logisch           => Wissensbasis
+              - Funktional        => Abbildungen Ein-/Ausgabe
+            - Keine Programmiersprachen, einige Beispiele
+              - HTML  -> Markup, wörtlich Auszeichnungssprache
+              - MD    -> Markdown, wie Markup nur weniger bloat
+              - CSS   -> Stylebeschreibung, Design
+              - JSON  -> Datenformatierung
+          -->
+        </div>
+      </section>
+
+      <!-- New section level 2 -->
+      <section>
+        <div class="aligncenter">
+          <h2>Imperative Paradigmen</h2>
+          <p>Eine Wiederholung</p>
+          <hr>
+        </div>
+      </section>
+
+      <!-- New section level 3 -->
+      <section>
+        <div class="aligncenter">
+          <h3>Strukturierte Programmierung</h3>
+          <p>Niemand mag Spaghetticode</p>
+          <hr>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Strukturierte Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Der Anreiz:</h5>
+          <ul>
+            <li>Quellcode übersäht mit GOTO-Anweisungen soll vermieden werden</li>
+            <li>Beschränkung auf minimalistischen Funktionsumfang</li>
+            <li>Beispielsprache: Pascal</li>
+          </ul>
+          <h5>Kerneigenschaften:</h5>
+          <ul>
+            <li>sequentiell ausgeführter Code</li>
+            <li>meist im Zusammenspiel mit prozeduralen Eigenschaften</li>
+            <li>Verzweigungen zur Flußkontrolle</li>
+            <li>Schleifen für Mehrfachausführung/ Iteration</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Strukturierte Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Ein Pseudo-Code Beispiel:</h5>
+          <div class="bg-black-blue">
+            <pre><code><p class="code-comment">// Programm, welches eine Zahl 'base' hoch 'exp' rechnet
+// Negative Exponenten werden nicht unterstützt</p>
+var base, exp Integer;
+base  = Read;
+exp   = Read;
+if exp == 0:
+  base = 1;
+else:
+  while exp > 1:
+    base  = base * base;
+    exp   = exp - 1;
+Write base;
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- New section level 3 -->
+      <section>
+        <div class="aligncenter">
+          <h3>Prozedurale Programmierung</h3>
+          <p>Code zum wiederverwenden</p>
+          <hr>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Prozedurale Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Der Anreiz:</h5>
+          <ul>
+            <li>Schlecht wartbare Programmmonolithen sollten lesbarer werden</li>
+            <li>Doppelt geschriebener Code ist doppelt fehleranfällig</li>
+            <li>Beispiel-Sprache: C</li>
+          </ul>
+          <h5>Kerneigenschaften:</h5>
+          <ul>
+            <li>Aufsplitten von Problemen in Teilprobleme</li>
+            <li>Aufruf von Unterprozeduren durch definierte Schnittstelle</li>
+            <li>Übergabe von Werten an Unter-/ Oberprozeduren</li>
+            <li>Unterscheidung zwischen lokalen und globalen Variablen</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Prozedurale Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Nochmal das Pseudo-Code Beispiel, mit Prozeduren:</h5>
+          <div class="bg-black-blue">
+            <pre><code><p class="code-comment">// Prozedur, welche eine Zahl 'base' hoch 'exp' rechnet
+// Negative Exponenten werden nicht unterstützt</p>
+proc Pow(base, exp Integer) Integer:
+  if exp == 0:
+    return 1;
+  while exp > 1:
+    base  = Sqr(base);
+    exp   = exp - 1;
+  return base;
+
+proc Sqr(base Integer) Integer:
+  return base * base;
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- New section level 3 -->
+      <section>
+        <div class="aligncenter">
+          <h3>Objektorientierte Programmierung</h3>
+          <p>Intuitive Weltabbildung</p>
+          <hr>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Objektorientierte Programmierung</h3>
+          <hr>
+        </div>
+        <div>
+          <h5>Der Anreiz:</h5>
+          <ul>
+            <li>Eigenschaften wiederverwenden durch Vererbung</li>
+            <li>Hierarchische Struktur grenzt </li>
+          </ul>
+          <h5>Kerneigenschaften:</h5>
+          <ul>
+            <li>Aufsplitten von Problemen in Teilprobleme</li>
+            <li>Aufruf von Unterprozeduren durch definierte Schnittstelle</li>
+            <li>Übergabe von Werten an Unter-/ Oberprozeduren</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- New section level 2 -->
+      <section>
+        <div class="aligncenter">
+          <h2>Deklarative Paradigmen</h2>
+          <p>Nur das Ziel interessiert</p>
+          <hr>
+        </div>
+      </section>
+
+      <!-- New section level 3 -->
+      <section>
+        <div class="aligncenter">
+          <h3>Logische Programmierung</h3>
+          <p>Gib Wissen und erhalte Antworten</p>
+          <hr>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Logische Programmierung</h3>
+          <hr>
+        </div>
+      </section>
+
+      <!-- New section level 3 -->
+      <section>
+        <div class="aligncenter">
+          <h3>Funktionale Programmierung</h3>
+          <p>Für Matheliebhaber</p>
+          <hr>
+        </div>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Funktionale Programmierung</h3>
+          <hr>
+        </div>
+      </section>
+
+      <!-- New section level 2 -->
+      <section class="slide-top">
+        <div class="wrap">
+          <h2>Quellen</h2>
+          <p>
+            Alle Links verweisen auf jeweilige web.archive.org Einträge um auch in Zukunft (hoffentlich) noch verfügbar
+            zu sein.
+          </p>
+          <div>
+            <ul>
+              <li>
+                <!-- https://stackify.com/popular-programming-languages-2018/ -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20190921120805/https://stackify.com/popular-programming-languages-2018/">
+                  A Look At 5 of the Most Popular Programming Languages of 2019 (stackify.com)
+                </a>
+              </li>
+              <li>
+                <!-- https://wiki.selfhtml.org/wiki/Programmiertechnik/Programmierparadigma#Deklarative_Programmierung -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20180223151432/http://wiki.selfhtml.org/wiki/Programmiertechnik/Programmierparadigma">
+                  Programmiertechnik/Programmierparadigma (wiki.selfhtml.org)
+                </a>
+              </li>
+              <li>
+                <!-- https://de.wikipedia.org/wiki/Programmierparadigma -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20191203154519/https://de.wikipedia.org/wiki/Programmierparadigma">
+                  Programmierparadigma (de.wikipedia.org)
+                </a>
+              </li>
+              <li>
+                <!-- https://de.wikipedia.org/wiki/Strukturierte_Programmierung -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20191211091441/https://de.wikipedia.org/wiki/Strukturierte_Programmierung">
+                  Strukturierte Programmierung (de.wikipedia.org)
+                </a>
+              </li>
+              <li>
+                <!-- https://de.wikipedia.org/wiki/Prozedurale_Programmierung -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20190603175004/https://de.wikipedia.org/wiki/Prozedurale_Programmierung">
+                  Prozedurale Programmierung (de.wikipedia.org)
+                </a>
+              </li>
+              <li>
+                <!-- https://de.wikipedia.org/wiki/Objektorientierte_Programmierung -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20191203010848/https://de.wikipedia.org/wiki/Objektorientierte_Programmierung">
+                  Objektorientierte Programmierung (de.wikipedia.org)
+                </a>
+              </li>
+              <li>
+                <!--https://de.wikipedia.org/wiki/Logische_Programmierung -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20181229201716/https://de.wikipedia.org/wiki/Logische_Programmierung">
+                  Logische Programmierung
+                </a>
+              </li>
+              <li>
+                <!-- https://de.wikipedia.org/wiki/Funktionale_Programmierung -->
+                <a target="blank"
+                  href="https://web.archive.org/web/20191203154523/https://de.wikipedia.org/wiki/Funktionale_Programmierung">
+                  Funktionale Programmierung
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
     </article>
   </main>
   <!-- end main -->
 
+  <!-- A global footer -->
+
   <footer>
     <div class="alignright">
-      <p>Erstellt von <a href="https://github.com/Kiraub">Erik Bauer</a> FIN81, mit <a
-          href="https://twitter.com/webslides">@webslides</a>. <a href="/">Home</a></p>
+      <p>
+        Erstellt von
+        <a target="blank" href="https://github.com/Kiraub">
+          Erik Bauer
+        </a>
+        FIN81, mit
+        <a target="blank" href="https://twitter.com/webslides">
+          @webslides
+        </a>
+        |
+        <a href="/">
+          Home
+        </a>
+      </p>
     </div>
   </footer>
+
+  <!-- end global footer-->
 
   <!-- Required -->
   <script src="/static/js/webslides.js"></script>
