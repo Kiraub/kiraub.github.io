@@ -1451,11 +1451,13 @@ section,
   page-break-after: always;
   position: relative;
   word-wrap: break-word; }
+  /* @kiraub commented out to have consistent padding on wider and narrower screens
   @media (min-width: 1024px) {
     section,
     .slide {
       padding-bottom: 12rem;
       padding-top: 12rem; } }
+  */
 
 /*slide with no padding (full card, .embed youtube video...) */
 .fullscreen {
