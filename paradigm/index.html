@@ -64,8 +64,8 @@
       <section>
         <div class="aligncenter">
           <h1>Programmier<wbr>paradigmen</h1>
-          <p>Ein Einblick anhand von Anwendungsbeispielen</p>
-          <hr>
+            <p>Ein Einblick anhand von Anwendungsbeispielen</p>
+            <hr>
         </div>
         <footer>
           <div class="alignright">
@@ -217,7 +217,7 @@ exp   = <span class="code-identifier">Read</span>;
           <ul>
             <li>Schlecht wartbare Programmmonolithen sollten lesbarer werden</li>
             <li>Doppelt geschriebener Code ist doppelt fehleranfällig</li>
-            <li>Beispiel-Sprache: C</li>
+            <li>Beispielsprache: C</li>
           </ul>
           <h5>Kerneigenschaften:</h5>
           <ul>
@@ -270,28 +270,27 @@ exp   = <span class="code-identifier">Read</span>;
         </div>
         <div>
           <div class="aligncenter">
-            <q> Alle Probleme der Computertechnik können durch eine weitere Schicht der Abstraktion gelöst werden. </q>
             <!--
+            <q> Alle Probleme der Computertechnik können durch eine weitere Schicht der Abstraktion gelöst werden. </q>
               Bewusst falsch zitiert
               Richtiges Zitat:
               David Wheeler "All problems in computer science can be solved by another level of indirection"
               https://en.wikipedia.org/wiki/Abstraction_layer#cite_note-1
             -->
           </div>
-          <br>
           <h5>Der Anreiz:</h5>
           <ul>
-            <li>Abbilden des betreffendes Teils der Realität in der Anwendung</li>
+            <li>Abbilden des betroffenen Teils der Realität in der Anwendung</li>
             <li>Simples erweitern von bestehenden Programmkonstrukten</li>
             <li>Verstecken komplexer Algorithmen</li>
+            <li>Beispielsprachen: C#, Java</li>
           </ul>
           <h5>Kerneigenschaften:</h5>
           <ul>
             <li>Klassen-/ und Objektkonzept</li>
             <li>Methoden anstelle von Funktionen</li>
             <li>Weitergabe von Eigenschaften & Verhalten durch Vererbung</li>
-            <li>Hierarchische Struktur grenzt Schnittstellen ab</li>
-            <li>Sichtbarkeitsmodifikatoren bestimmen Zugriffsrechte</li>
+            <li>Sichtbarkeitsmodifikatoren bestimmen Zugriffsrechte und definieren Schnittstellen</li>
           </ul>
         </div>
       </section>
@@ -375,13 +374,57 @@ exp   = <span class="code-identifier">Read</span>;
           <h3>Logische Programmierung</h3>
           <hr>
         </div>
+        <h5>Der Anreiz:</h5>
+        <ul>
+          <li>Programme schreiben auf Basis mathematischer Logik</li>
+          <li>dadurch Beweisbare Funktion/ Korrektheit</li>
+          <li>Zweck ist der Erkenntnisgewinn; aus bekanntem Wissen und Regeln neues Wissen ableiten</li>
+          <li>Beispielsprache: Prolog</li>
+        </ul>
+        <h5>Kerneigenschaften:</h5>
+        <ul>
+          <li>Proramme bestehten aus Axiomen</li>
+          <li>Axiome sind Fakten oder Regeln</li>
+          <li>Interaktion mit dem Programm durch Anfragen/ Behauptungen</li>
+          <li>Anfragen an das Programm versucht der Interpreter zu beweisen</li>
+        </ul>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Logische Programmierung</h3>
+          <hr>
+        </div>
+        <h5>Beispiele:</h5>
+        <ul>
+          <li>
+            <a target="blank" href="examples/logical/logicpuzzle.pl">
+              Logikpuzzle Löser
+            </a>
+          </li>
+          <li>
+            <a target="blank" href="examples/logical/4x4 Magisches Quadrat.pl">
+              4 mal 4 Magisches Quadrat Löser
+            </a>
+          </li>
+          <li>
+            <a target="blank" href="examples/logical/dameP.pl">
+              Dame-Problem Löser
+            </a>
+          </li>
+          <li>
+            <a target="blank" href="examples/logical/fibonacci.pl">
+              Fibonacci-Zahlenfolge
+            </a>
+          </li>
+        </ul>
       </section>
 
       <!-- New section level 3 -->
       <section>
         <div class="aligncenter">
           <h3>Funktionale Programmierung</h3>
-          <p>Insert functional joke here</p>
+          <p>Funktionen</p>
           <hr>
         </div>
       </section>
@@ -391,6 +434,47 @@ exp   = <span class="code-identifier">Read</span>;
           <h3>Funktionale Programmierung</h3>
           <hr>
         </div>
+        <h5>Der Anreiz:</h5>
+        <ul>
+          <li>Entstanden aus dem Lambda-Kalkül von Alonzo Church, Definition der berechenbaren Funktionen</li>
+          <li>Erstellen von allgemeingültigem, generischem Programmcode</li>
+          <li>Verzicht auf Zustandsübergänge, Funktionen sind einfache Abbildungen von Eingaben nach Ausgaben</li>
+          <li>Beispielsprache: Haskell</li>
+        </ul>
+        <h5>Kerneigenschaften:</h5>
+        <ul>
+          <li>Programme selbst sind lediglich Funktionen, die eine Eingabe auf eine Ausgabe abbilden</li>
+          <li>Funktionen bestehen aus Funktionen, konkrete Werte sind abgebildet durch konstante Funktionen</li>
+          <li>Funktionen können als Parameter oder auch als Ergebnis einer Funktion auftreten</li>
+          <li>Zur Laufzeit können weitere Funktionen generiert und entfernt werden</li>
+          <li>Closures, Funktionen mit <q>Speicher</q>, merken sich den Kontext zum Erstellungszeitpunkt</li>
+          <li>Anonyme Funktionen, auch <q>Lambda-Funktionen</q> genannt, verzichten auf Bezeichner</li>
+        </ul>
+      </section>
+
+      <section class="slide-top">
+        <div class="aligncenter">
+          <h3>Funktionale Programmierung</h3>
+          <hr>
+        </div>
+        <h5>Beispiele:</h5>
+        <ul>
+          <li>
+            <a target="blank" href="examples/functional/currying.hs">
+              Currying von Funktionen
+            </a>
+          </li>
+          <li>
+            <a target="blank" href="examples/functional/hangman.hs">
+              Hangman-Spiel
+            </a>
+          </li>
+          <li>
+            <a target="blank" href="examples/functional/mathe.hs">
+              KGV, GGT, Primzahlsieb...
+            </a>
+          </li>
+        </ul>
       </section>
 
       <!-- New section level 2 -->
